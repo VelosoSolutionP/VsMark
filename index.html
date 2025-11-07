@@ -2,144 +2,92 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Meus Anúncios - Futurista Cibernético</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VS Marketing - Consultoria e Desenvolvimento</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body, html {
-      width:100%; height:100%;
-      font-family:'Orbitron', sans-serif;
-      display:flex; justify-content:center; align-items:center;
-      background:#0a0a0a;
-      overflow:hidden;
-      position:relative;
-    }
-
-    .card {
-      position:relative;
-      background: rgba(0,0,0,0.6);
-      border-radius:20px;
-      padding:40px 30px;
-      color:#fff;
-      text-align:center;
-      width:380px;
-      box-shadow: 0 0 40px rgba(0,191,255,0.4), 0 0 80px rgba(0,191,255,0.2) inset;
-      backdrop-filter: blur(15px);
-      transition: all 0.5s ease;
-    }
-
-    h2 {
-      font-size:30px;
-      margin-bottom:30px;
-      color:#00bfff;
-      text-shadow: 0 0 10px #00bfff, 0 0 20px #0080ff;
-    }
-
-    input {
-      width:100%;
-      padding:12px 15px;
-      margin-bottom:20px;
-      border:none;
-      border-radius:12px;
-      background: rgba(255,255,255,0.05);
-      color:#fff;
-      font-size:16px;
-      outline:none;
-      box-shadow: inset 0 0 6px #00bfff;
-      transition: all 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    input:focus {
-      box-shadow: 0 0 15px #00bfff, inset 0 0 8px #00bfff;
-      background: rgba(0,191,255,0.1);
-    }
-
-    .password-container { position:relative; }
-    .toggle-password { position:absolute; right:15px; top:50%; transform:translateY(-50%); cursor:pointer; font-size:18px; color:#00bfff; }
-
-    button {
-      width:100%;
-      padding:12px;
-      border:none;
-      border-radius:15px;
-      background: linear-gradient(135deg,#00bfff,#0080ff);
-      color:#fff;
-      font-weight:bold;
-      font-size:16px;
-      cursor:pointer;
-      box-shadow: 0 0 20px #00bfff, 0 0 40px #0080ff inset;
-      transition: all 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    }
-    button:hover { transform: translateY(-3px) scale(1.03); box-shadow:0 0 50px #00bfff,0 0 80px #0080ff inset; }
-
-    p { margin-top:20px; font-size:14px; color:#00bfff; }
-    a { color:#00bfff; text-decoration:none; font-weight:bold; cursor:pointer; }
-    a:hover { text-decoration:underline; }
-
-    .hidden { display:none; }
-
-    /* Camadas estáticas cibernéticas */
-    body::before {
-      content:'';
-      position:absolute; top:0; left:0;
-      width:100%; height:100%;
-      background: linear-gradient(135deg, rgba(0,191,255,0.03), rgba(0,0,0,0.8));
-      z-index:-2;
-    }
-    body::after {
-      content:'';
-      position:absolute; top:0; left:0;
-      width:100%; height:100%;
-      background: repeating-linear-gradient(45deg, rgba(0,191,255,0.02), rgba(0,191,255,0.02) 2px, transparent 2px, transparent 4px);
-      z-index:-1;
-    }
+    * {margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif;}
+    body {background:#fff; color:#1e293b; scroll-behavior:smooth;}
+    header {position:fixed; top:0; width:100%; background:#fff; box-shadow:0 2px 10px rgba(0,0,0,0.08); z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem;}
+    header h1 {color:#0b5fff; font-weight:700;}
+    nav a {margin-left:1.5rem; text-decoration:none; color:#1e293b; font-weight:600; transition:0.3s;}
+    nav a:hover {color:#0b5fff;}
+    section {padding:100px 2rem; min-height:100vh;}
+    .hero {display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; animation:fadeIn 1s ease;}
+    .hero h2 {font-size:2.5rem; margin-bottom:1rem; color:#0b5fff;}
+    .hero p {font-size:1.2rem; margin-bottom:2rem; max-width:700px; color:#334155;}
+    .btn {background:#0b5fff; color:#fff; padding:0.75rem 1.5rem; border-radius:8px; text-decoration:none; font-weight:600; transition:0.3s;}
+    .btn:hover {background:#084ed1;}
+    .services {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2rem;}
+    .card {background:#f8fafc; border-radius:12px; padding:2rem; text-align:center; box-shadow:0 12px 40px rgba(2,6,23,0.08); transition:0.3s;}
+    .card:hover {transform:translateY(-5px);}
+    .card h3 {margin-bottom:1rem; color:#0b5fff;}
+    .contact {background:#0b5fff; color:#fff; text-align:center;}
+    .contact a {color:#fff; text-decoration:none; font-weight:700;}
+    footer {text-align:center; padding:2rem; background:#f1f5f9; color:#64748b;}
+    /* WhatsApp flutuante */
+    .whatsapp {position:fixed; bottom:20px; right:20px; background:#25d366; color:#fff; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2rem; box-shadow:0 4px 15px rgba(0,0,0,0.2); transition:0.3s; z-index:1000;}
+    .whatsapp:hover {transform:scale(1.1);}
+    @keyframes fadeIn {from{opacity:0} to{opacity:1}}
   </style>
 </head>
 <body>
 
-  <!-- LOGIN FORM -->
-  <div class="card" id="login-card">
-    <h2>Login</h2>
-    <input id="username" placeholder="Usuário" />
-    <div class="password-container">
-      <input id="password" type="password" placeholder="Senha" />
-      <span class="toggle-password" onclick="togglePassword()">👁️</span>
+<header>
+  <h1>VS Marketing</h1>
+  <nav>
+    <a href="#services">Serviços</a>
+    <a href="#about">Sobre</a>
+    <a href="#contact">Contato</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h2>Consultoria e Desenvolvimento Profissional</h2>
+  <p>Oferecemos soluções completas em .NET, Java, Node, PHP, Python, React, Vue, Angular. Projetos personalizados, sites institucionais e divulgação estratégica nas redes sociais.</p>
+  <a class="btn" href="#contact">Entre em contato</a>
+</section>
+
+<section id="services">
+  <h2 style="text-align:center; margin-bottom:2rem; color:#0b5fff;">Nossos Serviços</h2>
+  <div class="services">
+    <div class="card">
+      <h3>Desenvolvimento Web</h3>
+      <p>Sites institucionais, lojas online e aplicativos web com tecnologias modernas como React, Angular e Vue.</p>
     </div>
-    <button onclick="login()">Entrar</button>
-    <p>Não tem conta? <a onclick="showRegister()">Cadastrar</a></p>
-  </div>
-
-  <!-- REGISTER FORM -->
-  <div class="card hidden" id="register-card">
-    <h2>Cadastro</h2>
-    <input id="reg-username" placeholder="Usuário" />
-    <div class="password-container">
-      <input id="reg-password" type="password" placeholder="Senha" />
-      <span class="toggle-password" onclick="togglePassword()">👁️</span>
+    <div class="card">
+      <h3>Consultoria e Treinamento</h3>
+      <p>Treinamento de equipes e consultoria em projetos personalizados, migrações e melhorias de performance.</p>
     </div>
-    <button onclick="register()">Cadastrar</button>
-    <p>Já tem conta? <a onclick="showLogin()">Login</a></p>
+    <div class="card">
+      <h3>Integração e Automação</h3>
+      <p>Integração de sistemas, automação de processos, WhatsApp Business API e campanhas estratégicas de marketing.</p>
+    </div>
+    <div class="card">
+      <h3>Projetos Personalizados</h3>
+      <p>Desenvolvemos soluções únicas de acordo com sua necessidade, do planejamento à execução completa.</p>
+    </div>
   </div>
+</section>
 
-  <script>
-    function togglePassword() {
-      document.querySelectorAll('input[type="password"]').forEach(p=>{
-        p.type = p.type === "password" ? "text" : "password";
-      });
-    }
+<section id="about">
+  <h2 style="text-align:center; margin-bottom:2rem; color:#0b5fff;">Sobre Nós</h2>
+  <p style="max-width:700px; margin:0 auto; text-align:center; line-height:1.6;">
+    A VS Marketing oferece consultoria tecnológica de ponta para empresas que desejam crescer com soluções digitais modernas. Atuamos em todos os níveis: desde a concepção do projeto até treinamento de equipes e integração com redes sociais.
+  </p>
+</section>
 
-    function showRegister() {
-      document.getElementById('login-card').classList.add('hidden');
-      document.getElementById('register-card').classList.remove('hidden');
-    }
+<section id="contact" class="contact">
+  <h2>Entre em Contato</h2>
+  <p>WhatsApp: <a href="https://wa.me/5531992929447" target="_blank">+55 31 99292-9447</a></p>
+  <p>Email: <a href="mailto:contato@vsmarketing.com.br">contato@vsmarketing.com.br</a></p>
+</section>
 
-    function showLogin() {
-      document.getElementById('register-card').classList.add('hidden');
-      document.getElementById('login-card').classList.remove('hidden');
-    }
+<footer>
+  &copy; 2025 VS Marketing. Todos os direitos reservados.
+</footer>
 
-    function login() { alert("Login acionado"); }
-    function register() { alert("Registro acionado"); }
-  </script>
+<a href="https://wa.me/5531992929447" target="_blank" class="whatsapp">📲</a>
+
 </body>
 </html>
