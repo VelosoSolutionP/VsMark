@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Meus Anúncios - Futurista Cibernético</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body, html {
+      width:100%; height:100%;
+      font-family:'Orbitron', sans-serif;
+      display:flex; justify-content:center; align-items:center;
+      background:#0a0a0a;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .card {
+      position:relative;
+      background: rgba(0,0,0,0.6);
+      border-radius:20px;
+      padding:40px 30px;
+      color:#fff;
+      text-align:center;
+      width:380px;
+      box-shadow: 0 0 40px rgba(0,191,255,0.4), 0 0 80px rgba(0,191,255,0.2) inset;
+      backdrop-filter: blur(15px);
+      transition: all 0.5s ease;
+    }
+
+    h2 {
+      font-size:30px;
+      margin-bottom:30px;
+      color:#00bfff;
+      text-shadow: 0 0 10px #00bfff, 0 0 20px #0080ff;
+    }
+
+    input {
+      width:100%;
+      padding:12px 15px;
+      margin-bottom:20px;
+      border:none;
+      border-radius:12px;
+      background: rgba(255,255,255,0.05);
+      color:#fff;
+      font-size:16px;
+      outline:none;
+      box-shadow: inset 0 0 6px #00bfff;
+      transition: all 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus {
+      box-shadow: 0 0 15px #00bfff, inset 0 0 8px #00bfff;
+      background: rgba(0,191,255,0.1);
+    }
+
+    .password-container { position:relative; }
+    .toggle-password { position:absolute; right:15px; top:50%; transform:translateY(-50%); cursor:pointer; font-size:18px; color:#00bfff; }
+
+    button {
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:15px;
+      background: linear-gradient(135deg,#00bfff,#0080ff);
+      color:#fff;
+      font-weight:bold;
+      font-size:16px;
+      cursor:pointer;
+      box-shadow: 0 0 20px #00bfff, 0 0 40px #0080ff inset;
+      transition: all 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    button:hover { transform: translateY(-3px) scale(1.03); box-shadow:0 0 50px #00bfff,0 0 80px #0080ff inset; }
+
+    p { margin-top:20px; font-size:14px; color:#00bfff; }
+    a { color:#00bfff; text-decoration:none; font-weight:bold; cursor:pointer; }
+    a:hover { text-decoration:underline; }
+
+    .hidden { display:none; }
+
+    /* Camadas estáticas cibernéticas */
+    body::before {
+      content:'';
+      position:absolute; top:0; left:0;
+      width:100%; height:100%;
+      background: linear-gradient(135deg, rgba(0,191,255,0.03), rgba(0,0,0,0.8));
+      z-index:-2;
+    }
+    body::after {
+      content:'';
+      position:absolute; top:0; left:0;
+      width:100%; height:100%;
+      background: repeating-linear-gradient(45deg, rgba(0,191,255,0.02), rgba(0,191,255,0.02) 2px, transparent 2px, transparent 4px);
+      z-index:-1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN FORM -->
+  <div class="card" id="login-card">
+    <h2>Login</h2>
+    <input id="username" placeholder="Usuário" />
+    <div class="password-container">
+      <input id="password" type="password" placeholder="Senha" />
+      <span class="toggle-password" onclick="togglePassword()">👁️</span>
+    </div>
+    <button onclick="login()">Entrar</button>
+    <p>Não tem conta? <a onclick="showRegister()">Cadastrar</a></p>
+  </div>
+
+  <!-- REGISTER FORM -->
+  <div class="card hidden" id="register-card">
+    <h2>Cadastro</h2>
+    <input id="reg-username" placeholder="Usuário" />
+    <div class="password-container">
+      <input id="reg-password" type="password" placeholder="Senha" />
+      <span class="toggle-password" onclick="togglePassword()">👁️</span>
+    </div>
+    <button onclick="register()">Cadastrar</button>
+    <p>Já tem conta? <a onclick="showLogin()">Login</a></p>
+  </div>
+
+  <script>
+    function togglePassword() {
+      document.querySelectorAll('input[type="password"]').forEach(p=>{
+        p.type = p.type === "password" ? "text" : "password";
+      });
+    }
+
+    function showRegister() {
+      document.getElementById('login-card').classList.add('hidden');
+      document.getElementById('register-card').classList.remove('hidden');
+    }
+
+    function showLogin() {
+      document.getElementById('register-card').classList.add('hidden');
+      document.getElementById('login-card').classList.remove('hidden');
+    }
+
+    function login() { alert("Login acionado"); }
+    function register() { alert("Registro acionado"); }
+  </script>
+</body>
+</html>
